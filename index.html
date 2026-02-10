@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Executive Coaching | Spencer Kyle</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #1a1a2e;
+            --accent: #4f46e5;
+            --accent-light: #818cf8;
+            --text: #1f2937;
+            --text-light: #6b7280;
+            --bg: #ffffff;
+            --bg-alt: #f9fafb;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 80px 0 100px;
+            background: linear-gradient(135deg, var(--primary) 0%, #16213e 100%);
+            color: white;
+        }
+        
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            max-width: 700px;
+        }
+        
+        .hero .highlight {
+            color: var(--accent-light);
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            color: #d1d5db;
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.2s;
+        }
+        
+        .cta-button:hover {
+            background: var(--accent-light);
+            transform: translateY(-2px);
+        }
+        
+        /* Problem Section */
+        .problem {
+            padding: 80px 0;
+            background: var(--bg-alt);
+        }
+        
+        .problem h2 {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        
+        .problem-card {
+            background: white;
+            padding: 32px;
+            border-radius: 12px;
+            border-left: 4px solid #ef4444;
+        }
+        
+        .problem-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+        
+        .problem-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+        
+        /* Solution Section */
+        .solution {
+            padding: 80px 0;
+        }
+        
+        .solution h2 {
+            font-size: 2rem;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+        
+        .solution > .container > p {
+            text-align: center;
+            color: var(--text-light);
+            max-width: 650px;
+            margin: 0 auto 50px;
+            font-size: 1.1rem;
+        }
+        
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+        
+        .solution-card {
+            padding: 32px;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+            transition: all 0.2s;
+        }
+        
+        .solution-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 4px 20px rgba(79, 70, 229, 0.1);
+        }
+        
+        .solution-card .icon {
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+        
+        .solution-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+        }
+        
+        .solution-card p {
+            color: var(--text-light);
+        }
+        
+        /* How It Works */
+        .process {
+            padding: 80px 0;
+            background: var(--bg-alt);
+        }
+        
+        .process h2 {
+            font-size: 2rem;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+        
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 32px;
+        }
+        
+        .step {
+            text-align: center;
+            padding: 24px;
+        }
+        
+        .step-number {
+            width: 48px;
+            height: 48px;
+            background: var(--accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.25rem;
+            margin: 0 auto 20px;
+        }
+        
+        .step h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+        
+        .step p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+        
+        /* Outcomes */
+        .outcomes {
+            padding: 80px 0;
+        }
+        
+        .outcomes h2 {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .outcomes-list {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .outcome-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 24px;
+            padding: 20px;
+            background: var(--bg-alt);
+            border-radius: 8px;
+        }
+        
+        .outcome-item .check {
+            color: #10b981;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .outcome-item h3 {
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+        }
+        
+        .outcome-item p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary) 0%, #16213e 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+        
+        .cta-section p {
+            color: #d1d5db;
+            margin-bottom: 32px;
+            font-size: 1.1rem;
+        }
+        
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                padding: 60px 0 80px;
+            }
+            
+            .problem, .solution, .process, .outcomes {
+                padding: 60px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <h1>Become the <span class="highlight">AI-Fluent Executive</span> Your Company Needs</h1>
+            <p>Personal AI coaching for leaders who want to understand, evaluate, and implement AI — without depending on consultants to do it for them.</p>
+            <a href="#contact" class="cta-button">Book a Discovery Call</a>
+        </div>
+    </section>
+    
+    <!-- Problem -->
+    <section class="problem">
+        <div class="container">
+            <h2>The Executive AI Dilemma</h2>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <h3>Consultants Sell Projects, Not Understanding</h3>
+                    <p>You're asked to greenlight six-figure AI initiatives you can't properly evaluate. The risk sits with you, not them.</p>
+                </div>
+                <div class="problem-card">
+                    <h3>Your Team Can't Guide You Either</h3>
+                    <p>IT knows infrastructure. Marketing knows campaigns. But who truly understands what AI can and can't do for your specific business?</p>
+                </div>
+                <div class="problem-card">
+                    <h3>The Pace Is Relentless</h3>
+                    <p>Every week there's a new tool, a new capability, a new competitor announcement. Keeping up while running a business feels impossible.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Solution -->
+    <section class="solution">
+        <div class="container">
+            <h2>AI Fluency — Without the Typical Costs</h2>
+            <p>The value of anything is determined by what you get, how likely you are to get it, how fast you get it, and how much effort it takes. This coaching is designed to maximize all four.</p>
+            
+            <div class="solution-grid">
+                <div class="solution-card">
+                    <div class="icon">🎯</div>
+                    <h3>The Outcome: Decisions, Not Degrees</h3>
+                    <p>You're not here to become a data scientist. You're here to make confident AI decisions that move your business forward. That's exactly what we focus on.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="icon">📈</div>
+                    <h3>Why It Works: Context Is Everything</h3>
+                    <p>Generic AI courses teach generic concepts. We work with <em>your</em> industry, <em>your</em> challenges, <em>your</em> team. The likelihood of real results goes up dramatically when the learning fits your reality.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="icon">⚡</div>
+                    <h3>Speed: Apply It This Week</h3>
+                    <p>No 6-month programs before you see value. Every session gives you something you can use immediately — a decision framework, a tool to try, a proposal to evaluate. Results start in days, not months.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="icon">🪶</div>
+                    <h3>Zero Wasted Effort</h3>
+                    <p>I do the heavy lifting: curating what matters, filtering out the noise, translating technical jargon. You just show up. No homework. No fluff. Just focused, high-leverage time.</p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 48px; padding: 32px; background: var(--bg-alt); border-radius: 12px; border-left: 4px solid var(--accent);">
+                <p style="font-size: 1.1rem; color: var(--text); margin: 0; font-style: italic;">
+                    "Value = (Dream Outcome × Likelihood of Achievement) ÷ (Time Delay × Effort)"
+                </p>
+                <p style="font-size: 0.9rem; color: var(--text-light); margin-top: 12px; margin-bottom: 0;">
+                    This coaching is built to maximize the top and minimize the bottom. You get exactly what you need, tailored to your context, applicable immediately, with minimal effort on your part.
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Process -->
+    <section class="process">
+        <div class="container">
+            <h2>How It Works (Simple by Design)</h2>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>30-Min Discovery</h3>
+                    <p>A quick call to understand your business and goals. No prep required — just show up and talk.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>I Build Your Plan</h3>
+                    <p>Within 48 hours, you get a custom coaching outline. Zero effort on your end — I do the work.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Weekly 1-on-1s</h3>
+                    <p>60-minute sessions, immediate applicability. Each session ends with something you can use that week.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Async Access</h3>
+                    <p>AI proposal lands on your desk? Send it over. Quick question? Message me. No waiting for the next session.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Outcomes -->
+    <section class="outcomes">
+        <div class="container">
+            <h2>What You'll Walk Away With</h2>
+            <div class="outcomes-list">
+                <div class="outcome-item">
+                    <span class="check">✓</span>
+                    <div>
+                        <h3>Confident AI Decision-Making</h3>
+                        <p>Evaluate AI opportunities and proposals without second-guessing yourself or relying on others' opinions.</p>
+                    </div>
+                </div>
+                <div class="outcome-item">
+                    <span class="check">✓</span>
+                    <div>
+                        <h3>Practical Tool Fluency</h3>
+                        <p>Hands-on experience with the AI tools that matter for your role — not just awareness, but actual capability.</p>
+                    </div>
+                </div>
+                <div class="outcome-item">
+                    <span class="check">✓</span>
+                    <div>
+                        <h3>A Clear AI Roadmap</h3>
+                        <p>Walk away with a prioritized list of AI initiatives that make sense for your business, sized and sequenced appropriately.</p>
+                    </div>
+                </div>
+                <div class="outcome-item">
+                    <span class="check">✓</span>
+                    <div>
+                        <h3>The Ability to Lead the Conversation</h3>
+                        <p>Whether it's your board, your team, or external vendors — you'll speak AI with authority.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <h2>30 Minutes to Clarity</h2>
+            <p>One short call. No prep. No commitment. Just a conversation about what's possible for you.</p>
+            <a href="mailto:spencer@example.com?subject=AI%20Executive%20Coaching%20Inquiry" class="cta-button">Book Your Discovery Call</a>
+            <p style="margin-top: 20px; font-size: 0.9rem; color: #9ca3af;">Within 48 hours of our call, you'll have a clear picture of what AI coaching could look like for you.</p>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2026 Spencer Kyle. AI Executive Coaching.</p>
+        </div>
+    </footer>
+</body>
+</html>
