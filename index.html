@@ -7,6 +7,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
     <style>
         * {
             margin: 0;
@@ -14,231 +16,31 @@
             box-sizing: border-box;
         }
         
-        /* ============================================
-           BASE VARIABLES (Default/Original Design)
-           ============================================ */
         :root {
-            --primary: #1a1a2e;
-            --accent: #4f46e5;
-            --accent-light: #818cf8;
-            --text: #1f2937;
-            --text-light: #6b7280;
-            --bg: #ffffff;
-            --bg-alt: #f9fafb;
-            --hero-gradient: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            --card-border: #e5e7eb;
-            --card-shadow: 0 4px 20px rgba(79, 70, 229, 0.1);
-            --cta-radius: 8px;
-            --heading-font: 'Inter', sans-serif;
-            --body-font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-        }
-        
-        /* ============================================
-           THEME: HIERARCHY (Bold Visual Hierarchy)
-           Focus: Typography contrast, clear visual path
-           ============================================ */
-        body.theme-hierarchy {
-            --primary: #0f172a;
-            --accent: #3b82f6;
-            --accent-light: #60a5fa;
-            --text: #0f172a;
+            --primary: #1e293b;
+            --accent: #1e3a5f;
+            --accent-gold: #b8860b;
+            --accent-gold-light: #d4a84b;
+            --text: #1e293b;
             --text-light: #64748b;
             --bg: #ffffff;
             --bg-alt: #f8fafc;
-            --hero-gradient: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
-            --card-border: #e2e8f0;
-            --card-shadow: 0 10px 40px rgba(15, 23, 42, 0.12);
-            --cta-radius: 4px;
+            --border: #e2e8f0;
         }
         
-        body.theme-hierarchy .hero h1 {
-            font-size: clamp(3rem, 6vw, 4.5rem);
-            letter-spacing: -0.03em;
-            font-weight: 700;
-        }
-        
-        body.theme-hierarchy .hero p {
-            font-size: 1.35rem;
-            max-width: 550px;
-        }
-        
-        body.theme-hierarchy .cta-button {
-            padding: 20px 48px;
-            font-size: 1.2rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-        
-        body.theme-hierarchy h2 {
-            font-size: 2.5rem;
-            letter-spacing: -0.02em;
-        }
-        
-        body.theme-hierarchy .solution-card {
-            border-width: 2px;
-        }
-        
-        body.theme-hierarchy .step-number {
-            width: 64px;
-            height: 64px;
-            font-size: 1.5rem;
-        }
-        
-        /* ============================================
-           THEME: AESTHETICS (Premium/Luxury Feel)
-           Focus: Refined colors, elegant typography
-           ============================================ */
-        body.theme-aesthetics {
-            --primary: #18181b;
-            --accent: #a855f7;
-            --accent-light: #c084fc;
-            --text: #27272a;
-            --text-light: #71717a;
-            --bg: #fafafa;
-            --bg-alt: #f4f4f5;
-            --hero-gradient: linear-gradient(135deg, #18181b 0%, #27272a 50%, #3f3f46 100%);
-            --card-border: #d4d4d8;
-            --card-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-            --cta-radius: 50px;
-            --heading-font: 'Playfair Display', serif;
-        }
-        
-        body.theme-aesthetics h1,
-        body.theme-aesthetics h2 {
-            font-family: var(--heading-font);
-            font-weight: 600;
-        }
-        
-        body.theme-aesthetics .hero {
-            padding: 100px 0 120px;
-        }
-        
-        body.theme-aesthetics .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
-            line-height: 1.3;
-        }
-        
-        body.theme-aesthetics .hero .highlight {
-            background: linear-gradient(135deg, var(--accent-light), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        body.theme-aesthetics .cta-button {
-            background: linear-gradient(135deg, var(--accent) 0%, #9333ea 100%);
-            box-shadow: 0 4px 20px rgba(168, 85, 247, 0.4);
-        }
-        
-        body.theme-aesthetics .cta-button:hover {
-            box-shadow: 0 6px 30px rgba(168, 85, 247, 0.5);
-            transform: translateY(-3px);
-        }
-        
-        body.theme-aesthetics .solution-card {
-            background: white;
-            border: none;
-            box-shadow: var(--card-shadow);
-        }
-        
-        body.theme-aesthetics .problem-card {
-            border-left-color: var(--accent);
-        }
-        
-        /* ============================================
-           THEME: CONVERSION (CTA-Optimized)
-           Focus: Clear path to action, reduced friction
-           ============================================ */
-        body.theme-conversion {
-            --primary: #111827;
-            --accent: #10b981;
-            --accent-light: #34d399;
-            --text: #111827;
-            --text-light: #4b5563;
-            --bg: #ffffff;
-            --bg-alt: #f9fafb;
-            --hero-gradient: linear-gradient(135deg, #111827 0%, #1f2937 100%);
-            --card-border: #e5e7eb;
-            --card-shadow: 0 4px 15px rgba(16, 185, 129, 0.15);
-            --cta-radius: 8px;
-        }
-        
-        body.theme-conversion .hero {
-            padding: 60px 0 80px;
-        }
-        
-        body.theme-conversion .hero h1 {
-            margin-bottom: 16px;
-        }
-        
-        body.theme-conversion .hero p {
-            margin-bottom: 24px;
-        }
-        
-        body.theme-conversion .cta-button {
-            background: var(--accent);
-            padding: 18px 40px;
-            font-size: 1.15rem;
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
-            50% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
-        }
-        
-        body.theme-conversion .cta-button:hover {
-            background: var(--accent-light);
-            animation: none;
-        }
-        
-        body.theme-conversion .hero::after {
-            content: "No credit card required • Cancel anytime";
-            display: block;
-            color: rgba(255,255,255,0.7);
-            font-size: 0.85rem;
-            margin-top: 12px;
-        }
-        
-        body.theme-conversion .sticky-cta {
-            display: block;
-        }
-        
-        body.theme-conversion .problem {
-            padding: 50px 0;
-        }
-        
-        body.theme-conversion .outcomes {
-            padding: 50px 0;
-        }
-        
-        /* Hide by default, show in conversion theme */
-        .sticky-cta {
-            display: none;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: white;
-            padding: 16px 24px;
-            box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
-            z-index: 100;
-            text-align: center;
-        }
-        
-        .sticky-cta .cta-button {
-            margin: 0;
-        }
-        
-        /* ============================================
-           BASE STYLES (All Themes)
-           ============================================ */
         body {
-            font-family: var(--body-font);
-            line-height: 1.6;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-weight: 500;
+            line-height: 1.7;
             color: var(--text);
             background: var(--bg);
-            transition: all 0.3s ease;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
         }
         
         .container {
@@ -247,128 +49,190 @@
             padding: 0 24px;
         }
         
-        /* Design Switcher */
-        .design-switcher {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-            background: white;
-            padding: 12px 16px;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        
-        .design-switcher label {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: #374151;
-        }
-        
-        .design-switcher select {
-            padding: 8px 12px;
-            border: 1px solid #d1d5db;
-            border-radius: 6px;
-            font-size: 0.9rem;
-            background: white;
-            cursor: pointer;
-            min-width: 160px;
-        }
-        
-        .design-switcher select:focus {
-            outline: none;
-            border-color: var(--accent);
-        }
-        
         /* Hero Section */
         .hero {
-            padding: 80px 0 100px;
-            background: var(--hero-gradient);
+            padding: 100px 0 120px;
+            background: var(--primary);
             color: white;
         }
         
         .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-size: clamp(3rem, 6vw, 4.5rem);
             font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 24px;
-            max-width: 700px;
+            margin-bottom: 32px;
+            max-width: 800px;
         }
         
         .hero .highlight {
-            color: var(--accent-light);
+            color: var(--accent-gold-light);
         }
         
         .hero p {
             font-size: 1.25rem;
-            color: #d1d5db;
+            color: #cbd5e1;
             max-width: 600px;
             margin-bottom: 40px;
+            font-weight: 400;
         }
         
         .cta-button {
             display: inline-block;
-            background: var(--accent);
+            background: var(--accent-gold);
             color: white;
-            padding: 16px 32px;
-            border-radius: var(--cta-radius);
+            padding: 20px 48px;
+            border-radius: 4px;
             text-decoration: none;
             font-weight: 600;
             font-size: 1.1rem;
-            transition: all 0.2s;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
         }
         
         .cta-button:hover {
-            background: var(--accent-light);
+            background: var(--accent-gold-light);
             transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(184, 134, 11, 0.3);
+        }
+        
+        .hero-qualifier {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #94a3b8;
+            font-style: italic;
+        }
+        
+        .hero-trust {
+            margin-top: 48px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.95rem;
+            color: #94a3b8;
+        }
+        
+        .hero-trust strong {
+            color: white;
+            font-weight: 600;
+        }
+        
+        /* Outcomes Section (moved up per agent recommendation) */
+        .outcomes {
+            padding: 100px 0;
+        }
+        
+        .outcomes h2 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+        
+        .outcomes > .container > p {
+            text-align: center;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto 50px;
+            font-size: 1.1rem;
+        }
+        
+        .outcomes-list {
+            max-width: 800px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 24px;
+        }
+        
+        .outcome-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 28px;
+            background: var(--bg-alt);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+        
+        .outcome-item .icon {
+            color: var(--accent-gold);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        
+        .outcome-item h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        
+        .outcome-item p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            font-weight: 400;
         }
         
         /* Problem Section */
         .problem {
-            padding: 80px 0;
+            padding: 100px 0;
             background: var(--bg-alt);
         }
         
-        .problem h2 {
-            font-size: 2rem;
-            margin-bottom: 40px;
+        .problem-statement {
+            max-width: 800px;
+            margin: 0 auto;
             text-align: center;
         }
         
-        .problem-grid {
+        .problem-statement h2 {
+            font-size: 2.25rem;
+            margin-bottom: 24px;
+            color: var(--text);
+        }
+        
+        .problem-statement .big-quote {
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 32px;
+            line-height: 1.4;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .problem-details {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 24px;
+            margin-top: 48px;
+            text-align: left;
         }
         
         .problem-card {
             background: white;
-            padding: 32px;
-            border-radius: 12px;
-            border-left: 4px solid #ef4444;
+            padding: 28px;
+            border-radius: 8px;
+            border-left: 3px solid #94a3b8;
         }
         
         .problem-card h3 {
-            font-size: 1.1rem;
-            margin-bottom: 12px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
             color: var(--text);
         }
         
         .problem-card p {
             color: var(--text-light);
             font-size: 0.95rem;
+            font-weight: 400;
         }
         
         /* Solution Section */
         .solution {
-            padding: 80px 0;
+            padding: 100px 0;
         }
         
         .solution h2 {
-            font-size: 2rem;
+            font-size: 2.5rem;
             margin-bottom: 16px;
             text-align: center;
         }
@@ -383,52 +247,58 @@
         
         .solution-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 32px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 28px;
         }
         
         .solution-card {
             padding: 32px;
-            border-radius: 12px;
-            border: 1px solid var(--card-border);
-            transition: all 0.2s;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: white;
+            transition: all 0.3s ease;
         }
         
         .solution-card:hover {
-            border-color: var(--accent);
-            box-shadow: var(--card-shadow);
+            border-color: var(--accent-gold);
+            box-shadow: 0 8px 30px rgba(30, 58, 95, 0.08);
         }
         
         .solution-card .icon {
-            font-size: 2rem;
-            margin-bottom: 16px;
+            color: var(--accent-gold);
+            margin-bottom: 20px;
         }
         
         .solution-card h3 {
-            font-size: 1.25rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 600;
             margin-bottom: 12px;
         }
         
         .solution-card p {
             color: var(--text-light);
+            font-weight: 400;
         }
         
-        /* How It Works */
+        /* Process Section */
         .process {
-            padding: 80px 0;
+            padding: 100px 0;
             background: var(--bg-alt);
         }
         
         .process h2 {
-            font-size: 2rem;
-            margin-bottom: 50px;
+            font-size: 2.25rem;
+            margin-bottom: 60px;
             text-align: center;
         }
         
         .process-steps {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 32px;
+            max-width: 1000px;
+            margin: 0 auto;
         }
         
         .step {
@@ -437,8 +307,8 @@
         }
         
         .step-number {
-            width: 48px;
-            height: 48px;
+            width: 56px;
+            height: 56px;
             background: var(--accent);
             color: white;
             border-radius: 50%;
@@ -447,78 +317,55 @@
             justify-content: center;
             font-weight: 700;
             font-size: 1.25rem;
-            margin: 0 auto 20px;
+            margin: 0 auto 24px;
+            font-family: 'Inter', sans-serif;
         }
         
         .step h3 {
+            font-family: 'Inter', sans-serif;
             font-size: 1.1rem;
-            margin-bottom: 8px;
+            font-weight: 600;
+            margin-bottom: 10px;
         }
         
         .step p {
             color: var(--text-light);
             font-size: 0.95rem;
-        }
-        
-        /* Outcomes */
-        .outcomes {
-            padding: 80px 0;
-        }
-        
-        .outcomes h2 {
-            font-size: 2rem;
-            margin-bottom: 40px;
-            text-align: center;
-        }
-        
-        .outcomes-list {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
-        .outcome-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 16px;
-            margin-bottom: 24px;
-            padding: 20px;
-            background: var(--bg-alt);
-            border-radius: 8px;
-        }
-        
-        .outcome-item .check {
-            color: #10b981;
-            font-size: 1.5rem;
-            flex-shrink: 0;
-        }
-        
-        .outcome-item h3 {
-            font-size: 1.1rem;
-            margin-bottom: 4px;
-        }
-        
-        .outcome-item p {
-            color: var(--text-light);
-            font-size: 0.95rem;
+            font-weight: 400;
         }
         
         /* CTA Section */
         .cta-section {
-            padding: 80px 0;
-            background: var(--hero-gradient);
+            padding: 100px 0;
+            background: var(--primary);
             color: white;
             text-align: center;
         }
         
         .cta-section h2 {
-            font-size: 2rem;
+            font-size: 2.5rem;
             margin-bottom: 16px;
         }
         
-        .cta-section p {
-            color: #d1d5db;
-            margin-bottom: 32px;
-            font-size: 1.1rem;
+        .cta-section > .container > p {
+            color: #cbd5e1;
+            margin-bottom: 40px;
+            font-size: 1.15rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-section .scarcity {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+        
+        .cta-section .guarantee {
+            margin-top: 32px;
+            font-size: 0.95rem;
+            color: #cbd5e1;
         }
         
         /* Footer */
@@ -527,92 +374,136 @@
             text-align: center;
             color: var(--text-light);
             font-size: 0.9rem;
-        }
-        
-        /* Value Quote */
-        .value-quote {
-            margin-top: 48px;
-            padding: 32px;
             background: var(--bg-alt);
-            border-radius: 12px;
-            border-left: 4px solid var(--accent);
         }
         
-        .value-quote p:first-child {
-            font-size: 1.1rem;
-            color: var(--text);
-            margin: 0;
-            font-style: italic;
+        /* Sticky Mobile CTA */
+        .sticky-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            padding: 16px 24px;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+            z-index: 100;
+            text-align: center;
         }
         
-        .value-quote p:last-child {
-            font-size: 0.9rem;
-            color: var(--text-light);
-            margin-top: 12px;
-            margin-bottom: 0;
+        .sticky-cta .cta-button {
+            padding: 14px 32px;
+            font-size: 1rem;
+            width: 100%;
+            max-width: 400px;
         }
         
         @media (max-width: 768px) {
             .hero {
-                padding: 60px 0 80px;
+                padding: 70px 0 90px;
             }
             
-            .problem, .solution, .process, .outcomes {
-                padding: 60px 0;
+            .hero h1 {
+                font-size: 2.5rem;
             }
             
-            .design-switcher {
-                top: auto;
-                bottom: 80px;
-                right: 10px;
-                left: 10px;
-                justify-content: center;
+            .outcomes, .problem, .solution, .process {
+                padding: 70px 0;
+            }
+            
+            .sticky-cta {
+                display: block;
+            }
+            
+            body {
+                padding-bottom: 80px;
+            }
+            
+            .outcomes-list {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
-<body class="theme-default">
-    <!-- Design Switcher -->
-    <div class="design-switcher">
-        <label for="theme-select">Design:</label>
-        <select id="theme-select" onchange="switchTheme(this.value)">
-            <option value="default">Original</option>
-            <option value="hierarchy">Bold Hierarchy</option>
-            <option value="aesthetics">Premium Aesthetic</option>
-            <option value="conversion">Conversion Focused</option>
-        </select>
-    </div>
-    
-    <!-- Sticky CTA (Conversion theme only) -->
+<body>
+    <!-- Sticky Mobile CTA -->
     <div class="sticky-cta">
-        <a href="#contact" class="cta-button">Book Your Free Discovery Call →</a>
+        <a href="https://cal.com/spencerkyle/ai-coaching" class="cta-button">Book Your 30-Min Strategy Call</a>
     </div>
     
     <!-- Hero -->
     <section class="hero">
         <div class="container">
             <h1>Become the <span class="highlight">AI-Fluent Executive</span> Your Company Needs</h1>
-            <p>Personal AI coaching for leaders who want to understand, evaluate, and implement AI — without depending on consultants to do it for them.</p>
-            <a href="#contact" class="cta-button">Book a Discovery Call</a>
+            <p>Personal AI coaching for leaders making high-stakes technology decisions — without depending on consultants to do it for them.</p>
+            <a href="https://cal.com/spencerkyle/ai-coaching" class="cta-button">Book Your 30-Min Strategy Call</a>
+            <p class="hero-qualifier">For executives evaluating $500K+ AI investments without technical backgrounds.</p>
+            
+            <div class="hero-trust">
+                <strong>20+ executives coached</strong> across technology, finance, and professional services.
+            </div>
+        </div>
+    </section>
+    
+    <!-- Outcomes (moved up per agent recommendation) -->
+    <section class="outcomes">
+        <div class="container">
+            <h2>What You'll Walk Away With</h2>
+            <p>Tangible capabilities — not just knowledge.</p>
+            
+            <div class="outcomes-list">
+                <div class="outcome-item">
+                    <span class="icon"><i data-feather="check-circle"></i></span>
+                    <div>
+                        <h3>Confident AI Decision-Making</h3>
+                        <p>Evaluate AI opportunities and proposals without second-guessing yourself or relying on others' opinions.</p>
+                    </div>
+                </div>
+                <div class="outcome-item">
+                    <span class="icon"><i data-feather="check-circle"></i></span>
+                    <div>
+                        <h3>Practical Tool Fluency</h3>
+                        <p>Hands-on experience with the AI tools that matter for your role — not just awareness, but actual capability.</p>
+                    </div>
+                </div>
+                <div class="outcome-item">
+                    <span class="icon"><i data-feather="check-circle"></i></span>
+                    <div>
+                        <h3>A Clear AI Roadmap</h3>
+                        <p>A prioritized list of AI initiatives that make sense for your business, sized and sequenced appropriately.</p>
+                    </div>
+                </div>
+                <div class="outcome-item">
+                    <span class="icon"><i data-feather="check-circle"></i></span>
+                    <div>
+                        <h3>Lead the Conversation</h3>
+                        <p>Whether it's your board, your team, or vendors — you'll speak AI with authority.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
     
     <!-- Problem -->
     <section class="problem">
         <div class="container">
-            <h2>The Executive AI Dilemma</h2>
-            <div class="problem-grid">
-                <div class="problem-card">
-                    <h3>Consultants Sell Projects, Not Understanding</h3>
-                    <p>You're asked to greenlight six-figure AI initiatives you can't properly evaluate. The risk sits with you, not them.</p>
-                </div>
-                <div class="problem-card">
-                    <h3>Your Team Can't Guide You Either</h3>
-                    <p>IT knows infrastructure. Marketing knows campaigns. But who truly understands what AI can and can't do for your specific business?</p>
-                </div>
-                <div class="problem-card">
-                    <h3>The Pace Is Relentless</h3>
-                    <p>Every week there's a new tool, a new capability, a new competitor announcement. Keeping up while running a business feels impossible.</p>
+            <div class="problem-statement">
+                <h2>The Executive AI Dilemma</h2>
+                <p class="big-quote">"You're being asked to bet millions on technology you can't properly evaluate."</p>
+                
+                <div class="problem-details">
+                    <div class="problem-card">
+                        <h3>Consultants Sell Projects, Not Understanding</h3>
+                        <p>You're asked to greenlight six-figure AI initiatives you can't evaluate. The risk sits with you, not them.</p>
+                    </div>
+                    <div class="problem-card">
+                        <h3>Your Team Can't Guide You Either</h3>
+                        <p>IT knows infrastructure. Marketing knows campaigns. But who understands what AI can do for your specific business?</p>
+                    </div>
+                    <div class="problem-card">
+                        <h3>The Pace Is Relentless</h3>
+                        <p>Every week there's a new tool, new capability, new competitor. Keeping up while running a business feels impossible.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -622,34 +513,29 @@
     <section class="solution">
         <div class="container">
             <h2>AI Fluency — Without the Typical Costs</h2>
-            <p>The value of anything is determined by what you get, how likely you are to get it, how fast you get it, and how much effort it takes. This coaching is designed to maximize all four.</p>
+            <p>Maximum results. Minimum time. Zero wasted effort.</p>
             
             <div class="solution-grid">
                 <div class="solution-card">
-                    <div class="icon">🎯</div>
-                    <h3>The Outcome: Decisions, Not Degrees</h3>
-                    <p>You're not here to become a data scientist. You're here to make confident AI decisions that move your business forward. That's exactly what we focus on.</p>
+                    <span class="icon"><i data-feather="target"></i></span>
+                    <h3>Decisions, Not Degrees</h3>
+                    <p>You're not here to become a data scientist. You're here to make confident AI decisions that move your business forward.</p>
                 </div>
                 <div class="solution-card">
-                    <div class="icon">📈</div>
-                    <h3>Why It Works: Context Is Everything</h3>
-                    <p>Generic AI courses teach generic concepts. We work with <em>your</em> industry, <em>your</em> challenges, <em>your</em> team. The likelihood of real results goes up dramatically when the learning fits your reality.</p>
+                    <span class="icon"><i data-feather="compass"></i></span>
+                    <h3>Your Context, Your Challenges</h3>
+                    <p>Generic AI courses teach generic concepts. We work with your industry, your challenges, your team.</p>
                 </div>
                 <div class="solution-card">
-                    <div class="icon">⚡</div>
-                    <h3>Speed: Apply It This Week</h3>
-                    <p>No 6-month programs before you see value. Every session gives you something you can use immediately — a decision framework, a tool to try, a proposal to evaluate. Results start in days, not months.</p>
+                    <span class="icon"><i data-feather="zap"></i></span>
+                    <h3>Apply It This Week</h3>
+                    <p>Every session gives you something you can use immediately — a decision framework, a tool to try, a proposal to evaluate.</p>
                 </div>
                 <div class="solution-card">
-                    <div class="icon">🪶</div>
+                    <span class="icon"><i data-feather="feather"></i></span>
                     <h3>Zero Wasted Effort</h3>
-                    <p>I do the heavy lifting: curating what matters, filtering out the noise, translating technical jargon. You just show up. No homework. No fluff. Just focused, high-leverage time.</p>
+                    <p>I do the heavy lifting: curating what matters, filtering noise, translating jargon. You just show up.</p>
                 </div>
-            </div>
-            
-            <div class="value-quote">
-                <p>"Value = (Dream Outcome × Likelihood of Achievement) ÷ (Time Delay × Effort)"</p>
-                <p>This coaching is built to maximize the top and minimize the bottom. You get exactly what you need, tailored to your context, applicable immediately, with minimal effort on your part.</p>
             </div>
         </div>
     </section>
@@ -657,64 +543,27 @@
     <!-- Process -->
     <section class="process">
         <div class="container">
-            <h2>How It Works (Simple by Design)</h2>
+            <h2>How It Works</h2>
             <div class="process-steps">
                 <div class="step">
                     <div class="step-number">1</div>
                     <h3>30-Min Discovery</h3>
-                    <p>A quick call to understand your business and goals. No prep required — just show up and talk.</p>
+                    <p>A quick call to understand your business and goals. No prep required.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">2</div>
-                    <h3>I Build Your Plan</h3>
-                    <p>Within 48 hours, you get a custom coaching outline. Zero effort on your end — I do the work.</p>
+                    <h3>Custom Plan in 48h</h3>
+                    <p>You get a tailored coaching outline. Zero effort on your end.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">3</div>
                     <h3>Weekly 1-on-1s</h3>
-                    <p>60-minute sessions, immediate applicability. Each session ends with something you can use that week.</p>
+                    <p>60-minute sessions with immediate applicability. Use it that week.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">4</div>
                     <h3>Async Access</h3>
-                    <p>AI proposal lands on your desk? Send it over. Quick question? Message me. No waiting for the next session.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Outcomes -->
-    <section class="outcomes">
-        <div class="container">
-            <h2>What You'll Walk Away With</h2>
-            <div class="outcomes-list">
-                <div class="outcome-item">
-                    <span class="check">✓</span>
-                    <div>
-                        <h3>Confident AI Decision-Making</h3>
-                        <p>Evaluate AI opportunities and proposals without second-guessing yourself or relying on others' opinions.</p>
-                    </div>
-                </div>
-                <div class="outcome-item">
-                    <span class="check">✓</span>
-                    <div>
-                        <h3>Practical Tool Fluency</h3>
-                        <p>Hands-on experience with the AI tools that matter for your role — not just awareness, but actual capability.</p>
-                    </div>
-                </div>
-                <div class="outcome-item">
-                    <span class="check">✓</span>
-                    <div>
-                        <h3>A Clear AI Roadmap</h3>
-                        <p>Walk away with a prioritized list of AI initiatives that make sense for your business, sized and sequenced appropriately.</p>
-                    </div>
-                </div>
-                <div class="outcome-item">
-                    <span class="check">✓</span>
-                    <div>
-                        <h3>The Ability to Lead the Conversation</h3>
-                        <p>Whether it's your board, your team, or external vendors — you'll speak AI with authority.</p>
-                    </div>
+                    <p>AI proposal lands on your desk? Send it over. No waiting.</p>
                 </div>
             </div>
         </div>
@@ -723,10 +572,11 @@
     <!-- CTA -->
     <section class="cta-section" id="contact">
         <div class="container">
-            <h2>30 Minutes to Clarity</h2>
-            <p>One short call. No prep. No commitment. Just a conversation about what's possible for you.</p>
-            <a href="mailto:spencer@example.com?subject=AI%20Executive%20Coaching%20Inquiry" class="cta-button">Book Your Discovery Call</a>
-            <p style="margin-top: 20px; font-size: 0.9rem; color: #9ca3af;">Within 48 hours of our call, you'll have a clear picture of what AI coaching could look like for you.</p>
+            <h2>Let's Talk</h2>
+            <p>30 minutes. No prep. No commitment. Just a conversation about what's possible.</p>
+            <a href="https://cal.com/spencerkyle/ai-coaching" class="cta-button">Book Your Strategy Call</a>
+            <p class="scarcity">Limited to 5 new clients per quarter.</p>
+            <p class="guarantee">Within 48 hours of our call, you'll have a clear picture of what AI coaching could look like for you.</p>
         </div>
     </section>
     
@@ -738,19 +588,8 @@
     </footer>
     
     <script>
-        function switchTheme(theme) {
-            document.body.className = theme === 'default' ? '' : 'theme-' + theme;
-            localStorage.setItem('selectedTheme', theme);
-        }
-        
-        // Load saved theme
-        document.addEventListener('DOMContentLoaded', function() {
-            const saved = localStorage.getItem('selectedTheme');
-            if (saved) {
-                document.getElementById('theme-select').value = saved;
-                switchTheme(saved);
-            }
-        });
+        // Initialize Feather Icons
+        feather.replace();
     </script>
 </body>
 </html>
