@@ -1,0 +1,11 @@
+{
+  "name": "ai-executive-coach",
+  "version": "1.0.0",
+  "description": "AI Executive Coaching landing page",
+  "scripts": {
+    "start": "serve -s . -l tcp://0.0.0.0:$PORT"
+  },
+  "dependencies": {
+    "serve": "^14.2.0"
+  }
+}
